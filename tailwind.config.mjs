@@ -1,3 +1,5 @@
+import { fontFamily } from 'tailwindcss/defaultTheme'
+
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
@@ -7,8 +9,12 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+	fontFamily: {
+		heading: ["var(--font-heading)", ...fontFamily.sans]
+	},
   	extend: {
   		colors: {
+			brand: "#fe502d",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -54,7 +60,26 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		keyframes: {
+			"pulse-ring": {
+				'0%': {
+					transform: 'scale(1)',
+					boxShadow: '0 0 0 0 rgba(var(--brand-rgb), 0.7)'
+				},
+				'70%': {
+					transform: 'scale(1)',
+					boxShadow: '0 0 0 10px rgba(var(--brand-rgb), 0)'
+				},
+				'100%': {
+					transform: 'scale(1)',
+					boxShadow: '0 0 0 0 rgba(var(--brand-rgb), 0'
+				}
+			}
+		},
+		animation: {
+			"pulse-ring": 'pulse-ring 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

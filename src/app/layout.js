@@ -21,10 +21,10 @@ export const metadata = constructMetadata();
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className='!scroll-smooth'>
-      <body className={cn('min-h-screen font-heading antialiased', mulish.variable, nunito.variable)}>
+      <body className={cn('min-h-screen font-heading bg-[#fffbf6] antialiased', mulish.variable, nunito.variable)}>
         <Providers>
           <Toaster />
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
         </Providers>
       </body>
