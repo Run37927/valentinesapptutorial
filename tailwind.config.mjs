@@ -73,7 +73,7 @@ export default {
 				},
 				'100%': {
 					transform: 'scale(1)',
-					boxShadow: '0 0 0 0 rgba(var(--brand-rgb), 0'
+					boxShadow: '0 0 0 0 rgba(var(--brand-rgb), 0)'
 				}
 			}
 		},

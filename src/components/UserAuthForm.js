@@ -4,15 +4,21 @@ import { signIn } from 'next-auth/react';
 import { toast } from "sonner"
 import { Loader2 } from 'lucide-react';
 import { Icons } from './Icons';
+import { useSearchParams } from 'next/navigation';
 
 function UserAuthForm() {
     const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+    const searchParams = useSearchParams();
+    const intent = searchParams.get('intent')
 
     const signInWithGoogle = async () => {
         setIsGoogleLoading(true);
 
         try {
-            await signIn('google');
+            const callbackUrl = intent === 'purchase' ? '/upgrade' : '/editor'
+            await signIn('google', {
+                callbackUrl
+            });
             toast.success("You have been logged in successfully.", {
                 description: "Taking you back..."
             });

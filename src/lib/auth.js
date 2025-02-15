@@ -115,6 +115,9 @@ export const authOptions = {
                 url,
                 baseUrl
             })
+            if (url.includes("/upgrade")) {
+                return `${baseUrl}/upgrade`
+            }
             return "/";
         }
     }

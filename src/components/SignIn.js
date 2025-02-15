@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import UserAuthForm from './UserAuthForm'
 import CloseModalButton from './ui/close-modal-btn'
+import { Suspense } from 'react'
 
 function SignIn() {
     return (
@@ -19,7 +20,9 @@ function SignIn() {
                             </p>
                         </div>
 
-                        <UserAuthForm />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <UserAuthForm />
+                        </Suspense>
                     </div>
                 </div>
             </div>

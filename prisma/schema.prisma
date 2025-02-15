@@ -5,7 +5,7 @@ generator client {
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 model Account {
@@ -43,15 +43,40 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model Order {
+  id              String   @id @default(cuid())
+  amount          Float
+  isPaid          Boolean  @default(false)
+  stripeSessionId String?  @unique
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
 model User {
-  id            String    @id @default(cuid())
+  id            String     @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?    @unique
   emailVerified DateTime?
   image         String?
-  username      String?   @unique
+  username      String?    @unique
   role          String?
-  createdAt     DateTime  @default(now())
+  createdAt     DateTime   @default(now())
   accounts      Account[]
   sessions      Session[]
+  order         Order?
+  LovePage      LovePage[]
+}
+
+model LovePage {
+  id        String   @id @default(cuid())
+  slug      String   @unique // e.g., canyougooutwith.me/jenny
+  content   Json
+  reponses  Json?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
