@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Button } from "./ui/button"
 
-function Question4({ onResponse }) {
+function Question4({ onResponse, title }) {
     const [selectedFood, setSelectedFood] = useState(null)
 
     const foods = [
@@ -24,7 +24,7 @@ function Question4({ onResponse }) {
     return (
         <div className="text-center">
             <h1 className="text-5xl font-bold text-brand tracking-wide">
-                What food would you like to eat? 🍽️
+               {title || "What food would you like to eat? 🍽️"}
             </h1>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10 max-w-2xl mx-auto">

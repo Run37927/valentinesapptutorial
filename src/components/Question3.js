@@ -3,17 +3,17 @@ import React, { useState } from 'react'
 import { Calendar } from './ui/calendar';
 import { Button } from './ui/button';
 
-function Question3({ onResponse }) {
+function Question3({ onResponse, title, subtitle }) {
     const [date, setDate] = useState(null);
 
     return (
         <div className='text-center'>
             <h1 className='text-5xl font-bold text-brand tracking-wide'>
-                Are you free on...
+               {title || "Are you free on..."}
             </h1>
 
             <h2 className='text-xl font-bold text-brand tracking-wide mt-10'>
-                Select a date
+               {subtitle || "Select a date"}
             </h2>
 
             <div className='flex items-center justify-center gap-4 mt-4'>

@@ -73,7 +73,7 @@ model LovePage {
   id        String   @id @default(cuid())
   slug      String   @unique // e.g., canyougooutwith.me/jenny
   content   Json
-  reponses  Json?
+  responses  Json?
   published Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

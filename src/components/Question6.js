@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "./ui/button";
 
-function Question6({ onResponse }) {
+function Question6({ onResponse, title }) {
     const [selectedActivity, setSelectedActivity] = useState(null);
 
     const handleContinue = () => {
@@ -26,7 +26,7 @@ function Question6({ onResponse }) {
     return (
         <div className="text-center">
             <h1 className="text-5xl font-bold text-brand tracking-wide">
-                What would you like to do after?
+                {title || "What would you like to do after?"}
             </h1>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10 max-w-2xl mx-auto">

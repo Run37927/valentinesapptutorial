@@ -44,6 +44,12 @@ function PaymentSuccessModal({ userId }) {
                 description: "Redirecting to editor..."
             });
             router.push(`/editor/${data.slug}`)
+        },
+        onError: (error) => {
+            console.log("error", error.response.data);
+            toast.error(" error creating page", {
+                description: `${error.response?.data?.error || 'please try again'}`
+            })
         }
     })
     const onSubmit = (data) => {

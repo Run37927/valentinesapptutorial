@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "./ui/button";
 
-function Question5({ onResponse }) {
+function Question5({ onResponse, title }) {
     const [selectedDessert, setSelectedDessert] = useState(null);
 
     const handleContinue = () => {
@@ -24,7 +24,7 @@ function Question5({ onResponse }) {
     return (
         <div className="text-center">
             <h1 className="text-5xl font-bold text-brand tracking-wide">
-                Which dessert are we eating?
+             {title || "Which dessert are we eating?"}
             </h1>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-10 max-w-2xl mx-auto">

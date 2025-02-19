@@ -1,8 +1,13 @@
-import React from 'react'
+import EditableQuiz from "@/components/EditableQuiz";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
-function page() {
+async function page({ params }) {
+  const { slug } = await params;
+
   return (
-    <div>page</div>
+    <MaxWidthWrapper className='mb-12 mt-8'>
+      <EditableQuiz pageSlug={slug} />
+    </MaxWidthWrapper>
   )
 }
 
