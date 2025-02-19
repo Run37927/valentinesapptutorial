@@ -28,9 +28,9 @@ export const capitalizeFirstLetter = (str) => {
 
 // TODO: update this
 export function constructMetadata({
-  title = "",
-  description = "",
-  image = "/",
+  title = "can you go out with me",
+  description = "customize your questions and images to create a unique experience for your special someone",
+  image = "/openGraph.png",
   icons = "/favicon.ico",
 } = {}) {
   return {
@@ -40,8 +40,8 @@ export function constructMetadata({
     openGraph: {
       title,
       description,
-      siteName: "",
-      url: "https://www.example.com",
+      siteName: "can you go out with me",
+      url: "https://valentinesapptutorial.vercel.app",
       type: "website",
       images: [{ url: image }]
     },
@@ -52,6 +52,6 @@ export function constructMetadata({
       images: [image],
       creator: "@hairunhuang",
     },
-    metadataBase: new URL('https://example.xyz')
+    metadataBase: new URL('https://valentinesapptutorial.vercel.app')
   };
 }
